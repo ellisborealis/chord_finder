@@ -1,0 +1,7 @@
+First find the lowest tonic and only calculate on that particular chord.
+
+if(tonic falls on accidental)
+
+calculate flat chord and sharop chord
+
+use whichever has least amount of accidentals

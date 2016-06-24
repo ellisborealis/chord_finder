@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- css inclusion -->
+	<link rel="stylesheet" type="text/css" href="./css/stylesheet.css" />
+	<!-- d3 inclusion -->
+	<script type="text/javascript" src="./d3/d3.min.js"></script>
+	<!-- Ellis Javascript  -->
+	<script type="text/javascript" src="./ellisjs/ellis.js"></script>
+	<script type="text/javascript" src="./ellisjs/fretboard_management_creation.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>Chord Finder</title>
+</head>
+<body>
+<p>
+	Instrument:
+	<select id="instrumentSelection" onchange="refreshArguments()">
+		<option value="guitar">Guitar</option>
+		<option value="bass">Bass</option>
+		<option value="ukulele">Ukulele</option>
+		<option value="bariuke">Baritone Ukulele</option>
+		<option value="mandolin">Mandolin</option>
+		<option value="bouzouki">Bouzouki</option>
+	</select>
+</p>
+
+<script>
+//Width and height
+var h = 700;
+if(screen.height < h)
+{
+	h = screen.height;
+}
+var fretPadding = 4;
+// create inputs
+var fretHeight = 25;
+var nutSize = 1;
+var leftSide = 160;
+var leftSideOffset = 15;
+var dotSize = 6;
+var circleSize = 10;
+var dotSpacing = 4;
+var heightOffset = 0;
+var headSize = 6;
+
+// ukulele
+var numFrets = 17;
+var numStrings = 4;
+var offset = [-2,-9,-5,0];
+
+var w = 0;
+
+// create JSON variable
+var calculatedChords = "";
+var transitionDuration = 0; // milliseconds?
+
+var svg = [];
+var instantiatedFretBoard = [];
+var instantiatedFretDecorations = [];
+var instantiatedStrings = [];
+var instantiatedDots = [];
+var xScale = [];
+var staffScaleX = [];
+var staffScaleY = [];
+var div = [];
+var answerDiv = [];
+
+refreshArguments();
+
+function refreshArguments()
+{
+	// assign arguments here
+	assignArguments();
+	// recalculate everything with these arguments
+	// createFretboardImage();
+	createGraph();
+	refreshGraph();
+}
+
+</script>
+</body>
+</html>
